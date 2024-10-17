@@ -3,8 +3,6 @@ import turtle
 class NaiveDragonCurve:
     def __init__(self, depth, length, angle):
         """
-        Initializes a new NaiveDragonCurve object.
-
         Args:
             depth (int): The depth of the curve.
             length (float): The length of each segment.
@@ -17,8 +15,6 @@ class NaiveDragonCurve:
 
     def draw(self, n=None, sign=1):
         """
-        Recursively draws the Dragon Curve.
-
         Args:
             n (int, optional): The current depth level. If None, starts with the initial depth.
             sign (int, optional): The direction of the turn (1 for left, -1 for right).
@@ -28,7 +24,7 @@ class NaiveDragonCurve:
             n = self.depth  # Start with the initial depth
 
         if n == 0:
-            # Base case: Draw a straight line segment
+            # Base case: Draw a line
             turtle.forward(self.length)
         else:
             # Recursive case: Draw the left half and then the right half
