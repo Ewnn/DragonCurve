@@ -1,32 +1,33 @@
 import turtle
 
-# Function to draw dragon
-def Dragon(n, length, angle):
-    """
-    Args:
-        n: Recursion depth.
-        length: Length of each line segment.
-        angle: Angle of rotation.
-    """ 
-    if n == 0:
-        # Base case: draw a straight line
-        turtle.forward(length) 
-    else:
-        # Recursive case: divide and conquer
-        Dragon(n - 1, length, 90) # Draw the left half
-        turtle.left(angle) # Turn left
-        Dragon(n - 1, length, -90) # Draw the right half
+class Dragon:
+    def __init__(self, n, length, angle):
+        self.n = n
+        self.length = length
+        self.angle = angle
+
+    def draw(self):
+        if self.n == 0:
+            turtle.forward(self.length)
+        else:
+            self.draw(self.n - 1, self.length, 90)
+            turtle.left(self.angle)
+            self.draw(self.n - 1, self.length, -90)
 
 # Setup environment
-turtle.Screen().clear() # Clear screen
-turtle.speed(0) # Setup speed to fastest speed
-turtle.pensize(1) # Set the pen size to x pixels
+turtle.Screen().clear()
+turtle.speed(0)
+turtle.pensize(1)
+
+# Create a Dragon object
+dragon = Dragon(14, 5, 90)
 
 # Setup a starting point
 turtle.penup()
-turtle.goto(100,200)
+turtle.goto(100, 200)
 turtle.pendown()
 
-# Call function
-Dragon(14, 5, 90)
+# Call the draw method on the Dragon object
+dragon.draw()
+
 turtle.done()
