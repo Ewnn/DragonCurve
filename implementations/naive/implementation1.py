@@ -20,7 +20,13 @@ def Dragon(n, length, angle):
 # Setup environment
 turtle.Screen().clear() # Clear screen
 turtle.speed(0) # Setup speed to fastest speed
-turtle.pensize(2) # Set the pen size to 2 pixels
+turtle.pensize(1) # Set the pen size to x pixels
 
-# Predefined parameters
-n = 14
+# Setup a starting point
+turtle.penup()
+turtle.goto(100,200)
+turtle.pendown()
+
+# Call function
+Dragon(14, 5, 90)
+turtle.done()
