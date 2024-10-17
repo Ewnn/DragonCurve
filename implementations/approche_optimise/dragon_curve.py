@@ -24,7 +24,7 @@ class DragonCurveGraph(Graph):  # Inherit from the Graph class
         plt.axis('equal')  # Maintain aspect ratio
         plt.title("Dragon Curve")  # Title of the plot
         
-        for d in directions:
+        for i, d in enumerate(directions):
             dx, dy = moves[d]  # Get the movement corresponding to the current direction
             next_point = (current_point[0] + dx, current_point[1] + dy)  # Calculate the next point
             
@@ -32,9 +32,12 @@ class DragonCurveGraph(Graph):  # Inherit from the Graph class
             x.append(next_point[0])  # Append the x-coordinate of the next point
             y.append(next_point[1])  # Append the y-coordinate of the next point
             
+            # Calculate dynamic color based on the iteration index
+            color = (i / len(directions), 0, 1 - (i / len(directions)))  # Change from red to blue
+            
             # Draw the segment in real-time
-            plt.plot(x[-2:], y[-2:], color='blue', lw=0.7)  # Plot the line segment
-            plt.pause(0)  # Pause to display the animation
+            plt.plot(x[-2:], y[-2:], color=color, lw=0.7)  # Plot the line segment
+            plt.pause(0.01)  # Pause to display the animation
             
             current_point = next_point  # Update the current point
 
