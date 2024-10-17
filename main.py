@@ -1,4 +1,4 @@
-from visualisations.visu_approche_naive import naive_dragon_curve_approach
+from visualisations.draw_approche_naive import naive_dragon_curve_approach
 
 
 
