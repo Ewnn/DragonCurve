@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from .graph import Graph
+import matplotlib.cm as cm  # Import for colormap
 
 class DragonCurveGraph(Graph):  # Inherit from the Graph class
     def generate_dragon_curve(self, iterations):
@@ -27,6 +28,9 @@ class DragonCurveGraph(Graph):  # Inherit from the Graph class
         plt.axis('equal')
         plt.title("Dragon Curve")
 
+        # Set up the colormap
+        colormap = cm.get_cmap("viridis", len(directions))
+
         # Iterate over the directions
         for i, d in enumerate(directions):
             # Calculate the movement based on the current direction
@@ -37,8 +41,8 @@ class DragonCurveGraph(Graph):  # Inherit from the Graph class
             x.append(next_point[0])  # Append instead of using np.append
             y.append(next_point[1])  # Append instead of using np.append
 
-            # Calculate a color based on the iteration index for visualization
-            color = (i / len(directions), 0, 1 - (i / len(directions)))
+            # Get a color from the colormap
+            color = colormap(i / len(directions))
 
             # Plot the line segment and pause for a brief animation effect
             plt.plot(x[-2:], y[-2:], color=color, lw=0.7)

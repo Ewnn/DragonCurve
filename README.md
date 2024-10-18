@@ -11,6 +11,10 @@ La courbe du dragon est une fractale célèbre pour sa structure complexe et aut
 * **Comparer les performances :** Évaluer les avantages et les inconvénients de chaque approche en termes de temps d'exécution et d'utilisation de la mémoire.
 * **Visualiser les résultats :** Créer des représentations graphiques de la courbe du dragon pour différentes itérations.
 
+### Visualisations de l'algorithme
+
+![alt text](ressources/approche_naive.gif)
+
 ### Implémentations
 
 #### Version récursive
